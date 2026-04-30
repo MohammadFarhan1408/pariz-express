@@ -104,7 +104,7 @@ function DiffSection() {
     >
       <div className="text-center max-w-2xl mx-auto mb-12">
         <motion.span 
-          className="inline-block px-4 py-1.5 rounded-full bg-primary-500/10 text-primary-300 text-sm font-medium mb-4"
+          className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/10 text-secondary-400 text-sm font-medium mb-4"
           variants={fadeInUp}
         >
           The Pariz Difference
@@ -123,17 +123,17 @@ function DiffSection() {
             <motion.div
               key={idx}
               variants={cardVariants}
-              className="text-center p-8 rounded-2xl border border-white/10 bg-linear-to-br from-neutral-900/50 to-neutral-800/30 hover:border-primary-500/30 transition-colors duration-300 group cursor-pointer overflow-hidden"
+              className="text-center p-8 rounded-2xl border border-white/10 bg-linear-to-br from-neutral-900/50 to-neutral-800/30 hover:border-secondary-500/30 transition-colors duration-300 group cursor-pointer overflow-hidden"
               whileHover="hover"
             >
-              <div className="absolute inset-0 bg-linear-to-br from-primary-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-linear-to-br from-secondary-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <motion.div 
-                className="relative z-10 w-12 h-12 rounded-lg bg-primary-500/15 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-500/25 transition-all duration-300"
+                className="relative z-10 w-12 h-12 rounded-lg bg-secondary-500/15 flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary-500/25 transition-all duration-300"
                 whileHover={{ scale: 1.15 }}
               >
-                {IconComponent && <IconComponent className="text-primary-500 w-6 h-6" strokeWidth={1.5} />}
+                {IconComponent && <IconComponent className="text-secondary-500 w-6 h-6" strokeWidth={1.5} />}
               </motion.div>
-              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary-400 transition-colors relative z-10">{item.title}</h3>
+              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-secondary-400 transition-colors relative z-10">{item.title}</h3>
               <p className="text-neutral-400 relative z-10">{item.desc}</p>
             </motion.div>
           );

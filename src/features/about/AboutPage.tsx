@@ -22,7 +22,7 @@ export default function AboutPage() {
       />
 
       {/* Story Section */}
-      <SectionWrapper id="our-story" variant="light">
+      <SectionWrapper id="our-story" variant="dark">
         <StorySection />
       </SectionWrapper>
 
@@ -32,7 +32,7 @@ export default function AboutPage() {
       </SectionWrapper>
 
       {/* Stats */}
-      <SectionWrapper id="stats" variant="light">
+      <SectionWrapper id="stats" variant="dark">
         <StatsSection />
       </SectionWrapper>
 
@@ -238,7 +238,7 @@ function ValuesSection() {
     >
       <div className="text-center max-w-2xl mx-auto mb-12">
         <motion.span 
-          className="inline-block px-4 py-1.5 rounded-full bg-primary-500/10 text-primary-300 text-sm font-medium mb-4"
+          className="inline-block px-4 py-1.5 rounded-full bg-primary-500/10 text-secondary-300 text-sm font-medium mb-4"
           variants={fadeInUp}
         >
           Our Values
