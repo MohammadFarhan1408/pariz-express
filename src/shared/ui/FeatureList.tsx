@@ -1,10 +1,18 @@
 import { motion } from 'framer-motion';
-import * as LucideIcons from 'lucide-react';
+import { Zap, Shield, Globe } from 'lucide-react'; // import only what you use
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { containerVariants, staggerItem } from '../../utils/animations';
 
+const iconMap = {
+  zap: Zap,
+  shield: Shield,
+  globe: Globe,
+};
+
+type IconName = keyof typeof iconMap;
+
 interface Feature {
-  icon: string;
+  icon: IconName;
   title: string;
   description: string;
 }
@@ -23,17 +31,15 @@ export default function FeatureList({ features }: FeatureListProps) {
       viewport={{ once: true, margin: '-50px' }}
     >
       {features.map((feature, idx) => (
-        <FeatureItem key={idx} feature={feature} index={idx} />
+        <FeatureItem key={idx} feature={feature} />
       ))}
     </motion.div>
   );
 }
 
-function FeatureItem({ feature, index }: { feature: Feature; index: number }) {
+function FeatureItem({ feature }: { feature: Feature }) {
   const ref = useScrollAnimation();
-  
-  // Get the icon component from lucide-react
-  const IconComponent = LucideIcons[feature.icon as keyof typeof LucideIcons] as any;
+  const IconComponent = iconMap[feature.icon];
 
   return (
     <motion.div
@@ -46,11 +52,15 @@ function FeatureItem({ feature, index }: { feature: Feature; index: number }) {
         className="w-12 h-12 rounded-lg bg-linear-to-br from-secondary-500/20 to-secondary-500/5 flex items-center justify-center shrink-0 group-hover:from-secondary-500/30 group-hover:to-secondary-500/10 transition-all duration-300"
         whileHover={{ scale: 1.1 }}
       >
-        {IconComponent && <IconComponent className="text-secondary-500 w-6 h-6" strokeWidth={1.5} />}
+        <IconComponent className="text-secondary-500 w-6 h-6" strokeWidth={1.5} />
       </motion.div>
       <div className="flex-1">
-        <h4 className="text-white font-semibold mb-1 group-hover:text-secondary-400 transition-colors">{feature.title}</h4>
-        <p className="text-neutral-400 text-sm leading-relaxed group-hover:text-neutral-300 transition-colors">{feature.description}</p>
+        <h4 className="text-white font-semibold mb-1 group-hover:text-secondary-400 transition-colors">
+          {feature.title}
+        </h4>
+        <p className="text-neutral-400 text-sm leading-relaxed group-hover:text-neutral-300 transition-colors">
+          {feature.description}
+        </p>
       </div>
     </motion.div>
   );
