@@ -10,11 +10,17 @@ import { SERVICES, PROCESS_STEPS, TESTIMONIALS, STATS } from '../../utils/consta
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { containerVariants, fadeInUp } from '../../utils/animations';
 
-const WHY_US_FEATURES = [
-  { icon: 'Zap', title: 'Lightning Fast', description: 'Same-day and next-day delivery options with industry-leading speed.' },
-  { icon: 'ShieldCheck', title: 'Reliable & Secure', description: '98.5% on-time delivery rate with full insurance coverage.' },
-  { icon: 'Cpu', title: 'Tech-Powered', description: 'AI route optimization and real-time tracking for total visibility.' },
-  { icon: 'Headphones', title: '24/7 Support', description: 'Dedicated account managers and round-the-clock customer service.' },
+interface Feature {
+  icon: 'zap' | 'shield' | 'globe' | 'cpu' | 'headphones';
+  title: string;
+  description: string;
+}
+
+const WHY_US_FEATURES: Feature[] = [
+  { icon: 'zap', title: 'Lightning Fast', description: 'Same-day and next-day delivery options with industry-leading speed.' },
+  { icon: 'shield', title: 'Reliable & Secure', description: '98.5% on-time delivery rate with full insurance coverage.' },
+  { icon: 'cpu', title: 'Tech-Powered', description: 'AI route optimization and real-time tracking for total visibility.' },
+  { icon: 'headphones', title: '24/7 Support', description: 'Dedicated account managers and round-the-clock customer service.' },
 ];
 
 export default function HomePage() {

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Zap, Shield, Globe } from 'lucide-react'; // import only what you use
+import { Zap, Shield, Globe, Cpu, Headphones, HelpCircle } from 'lucide-react'; // import only what you use
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { containerVariants, staggerItem } from '../../utils/animations';
 
@@ -7,6 +7,8 @@ const iconMap = {
   zap: Zap,
   shield: Shield,
   globe: Globe,
+  cpu: Cpu,
+  headphones: Headphones,
 };
 
 type IconName = keyof typeof iconMap;
@@ -39,7 +41,8 @@ export default function FeatureList({ features }: FeatureListProps) {
 
 function FeatureItem({ feature }: { feature: Feature }) {
   const ref = useScrollAnimation();
-  const IconComponent = iconMap[feature.icon];
+  
+  const IconComponent = iconMap[feature.icon] || HelpCircle;
 
   return (
     <motion.div
