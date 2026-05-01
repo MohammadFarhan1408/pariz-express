@@ -36,7 +36,7 @@ export default function HomePage() {
         }
         subtitle="Premium last-mile delivery, e-commerce fulfillment, and distribution solutions — powered by technology, driven by reliability."
         primaryCTA={{ label: 'Get a Quote', to: '/contact' }}
-        secondaryCTA={{ label: 'Track Package', to: '/tracking' }}
+        // secondaryCTA={{ label: 'Track Package', to: '/tracking' }}
       />
 
       {/* Stats Bar */}
