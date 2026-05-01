@@ -219,25 +219,25 @@ function InfoPanel() {
   );
 }
 
-function MapPlaceholder() {
-  return (
-    <motion.section 
-      className="py-16 bg-linear-to-b from-neutral-50 to-neutral-100"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="aspect-video rounded-2xl bg-linear-to-br from-neutral-200 to-neutral-300 flex items-center justify-center">
-          <div className="text-center">
-            <MapPin className="w-16 h-16 text-neutral-400 mx-auto mb-4" strokeWidth={1} />
-            <p className="text-neutral-600 font-medium">Map integration coming soon</p>
-          </div>
-        </div>
-      </div>
-    </motion.section>
-  );
-}
+// function MapPlaceholder() {
+//   return (
+//     <motion.section 
+//       className="py-16 bg-linear-to-b from-neutral-50 to-neutral-100"
+//       initial={{ opacity: 0 }}
+//       whileInView={{ opacity: 1 }}
+//       viewport={{ once: true }}
+//     >
+//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//         <div className="aspect-video rounded-2xl bg-linear-to-br from-neutral-200 to-neutral-300 flex items-center justify-center">
+//           <div className="text-center">
+//             <MapPin className="w-16 h-16 text-neutral-400 mx-auto mb-4" strokeWidth={1} />
+//             <p className="text-neutral-600 font-medium">Map integration coming soon</p>
+//           </div>
+//         </div>
+//       </div>
+//     </motion.section>
+//   );
+// }
 
 function MobileCTA() {
   return (

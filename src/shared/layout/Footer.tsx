@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { NAV_LINKS, SITE_NAME, COMPANY_INFO } from '../../utils/constants';
-import { Mail, MailCheck, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin, Phone } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();

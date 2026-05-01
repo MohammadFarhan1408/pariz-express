@@ -7,7 +7,6 @@ import CTASection from '../../shared/sections/CTASection';
 import { SERVICES } from '../../utils/constants';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { containerVariants, fadeInUp, cardVariants } from '../../utils/animations';
-import { images } from '../../data/images';
 
 export default function ServicesPage() {
   return (
