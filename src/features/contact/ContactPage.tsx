@@ -79,7 +79,7 @@ export default function ContactPage() {
 
       {/* Info on desktop - separate section */}
       <motion.section
-        className="hidden lg:block py-24 bg-gradient-to-b from-white to-sky-50/40"
+        className="py-24 bg-gradient-to-b from-white to-sky-50/40"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -305,6 +305,7 @@ function InfoPanel() {
     </motion.div>
   );
 }
+
 function MapPlaceholder() {
   return (
     <motion.div
