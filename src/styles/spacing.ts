@@ -1,4 +1,4 @@
-// Pariz Express Spacing Scale (4px base)
+// Wellness spacing scale (4px base)
 
 export const spacing = {
   0: '0px',

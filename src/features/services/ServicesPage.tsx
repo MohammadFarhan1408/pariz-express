@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import * as LucideIcons from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import HeroSection from '../../shared/sections/HeroSection';
 import SectionWrapper from '../../shared/layout/SectionWrapper';
 import ServiceCard from '../../shared/ui/ServiceCard';
@@ -14,10 +15,10 @@ export default function ServicesPage() {
       <HeroSection
         headline={
           <>
-            Our <span className="text-gradient-orange">Services</span>
+            Our <span className="text-gradient-sky">Services</span>
           </>
         }
-        subtitle="Comprehensive logistics solutions tailored to your business needs — from last-mile delivery to full-scale distribution."
+        subtitle="Professional non-emergency medical transportation designed around safety, punctuality, accessibility, and compassionate care."
         breadcrumb="Services"
       />
 
@@ -31,7 +32,11 @@ export default function ServicesPage() {
               icon={service.icon}
               title={service.title}
               description={service.description}
+              image={service.image}
+              imageAlt={service.imageAlt}
               features={service.features}
+              ctaLabel="Learn More"
+              ctaTo={`/services/${service.id}`}
               delay={idx * 100}
             />
           ))}
@@ -44,9 +49,9 @@ export default function ServicesPage() {
       </SectionWrapper>
 
       <CTASection
-        headline="Need a Custom Solution?"
-        subtitle="Our logistics experts will design a tailored package that fits your unique requirements."
-        ctaLabel="Talk to an Expert"
+        headline="Need Help Choosing the Right Ride?"
+        subtitle="Tell us about the appointment, mobility needs, and schedule. Our team will help coordinate dependable medical transportation."
+        ctaLabel="Request Ride Support"
       />
     </>
   );
@@ -57,30 +62,36 @@ function Header() {
   return (
     <motion.div 
       ref={ref} 
-      className="text-center max-w-2xl mx-auto"
+      className="text-center max-w-3xl mx-auto"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: '-50px' }}
     >
       <motion.span 
-        className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/10 text-secondary-400 text-sm font-medium mb-4"
+        className="inline-block px-4 py-1.5 rounded-full bg-primary-50 text-primary-700 border border-primary-100 text-sm font-medium mb-4"
         variants={fadeInUp}
       >
-        What We Offer
+        Medical Transportation Services
       </motion.span>
       <motion.h2 
-        className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white mb-4"
+        className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-neutral-900 mb-4"
         variants={fadeInUp}
       >
-        Logistics Solutions for Every Need
+        Accessible Rides for Every Care Need
       </motion.h2>
       <motion.p 
-        className="text-neutral-400 text-lg"
+        className="text-neutral-600 text-lg leading-relaxed"
         variants={fadeInUp}
       >
-        Whether you're a startup or an enterprise, we have the infrastructure and technology to power your deliveries.
+        Clean, coordinated transportation for appointments, treatments, discharges, and everyday mobility support.
       </motion.p>
+      <motion.div
+        className="mt-6 inline-flex items-center rounded-full border border-primary-100 bg-white px-4 py-2 text-sm font-medium text-neutral-700 shadow-sm shadow-slate-200/70"
+        variants={fadeInUp}
+      >
+        Trusted support for patients, families, and care teams
+      </motion.div>
     </motion.div>
   );
 }
@@ -88,9 +99,9 @@ function Header() {
 function DiffSection() {
   const ref = useScrollAnimation();
   const items = [
-    { icon: 'Building2', title: 'Built for Scale', desc: 'Infrastructure that grows with your business — from 100 to 100,000 deliveries a day.' },
-    { icon: 'Link', title: 'Seamless Integration', desc: 'API-first approach lets you plug our services into your existing tech stack.' },
-    { icon: 'BarChart3', title: 'Data-Driven', desc: 'Real-time analytics and predictive insights to optimize your supply chain.' },
+    { icon: 'BadgeCheck', title: 'Safety First', desc: 'Careful boarding, securement, and driver support for a smoother ride.' },
+    { icon: 'Clock3', title: 'Reliable Timing', desc: 'Appointments, pickups, and recurring trips coordinated with punctuality in mind.' },
+    { icon: 'HeartHandshake', title: 'Compassionate Care', desc: 'Respectful assistance for patients, seniors, caregivers, and families.' },
   ];
 
   return (
@@ -103,37 +114,37 @@ function DiffSection() {
     >
       <div className="text-center max-w-2xl mx-auto mb-12">
         <motion.span 
-          className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/10 text-secondary-400 text-sm font-medium mb-4"
+          className="inline-block px-4 py-1.5 rounded-full bg-primary-50 text-primary-700 border border-primary-100 text-sm font-medium mb-4"
           variants={fadeInUp}
         >
-          The Pariz Difference
+          Why Families Choose Us
         </motion.span>
         <motion.h2 
-          className="text-3xl sm:text-4xl font-display font-bold text-white mb-4"
+          className="text-3xl sm:text-4xl font-display font-bold text-neutral-900 mb-4"
           variants={fadeInUp}
         >
-          Why Businesses Choose Us
+          Professional Care Beyond the Vehicle
         </motion.h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {items.map((item, idx) => {
-          const IconComponent = LucideIcons[item.icon as keyof typeof LucideIcons] as any;
+          const IconComponent = LucideIcons[item.icon as keyof typeof LucideIcons] as LucideIcon | undefined;
           return (
             <motion.div
               key={idx}
               variants={cardVariants}
-              className="text-center p-8 rounded-2xl border border-white/10 bg-linear-to-br from-neutral-900/50 to-neutral-800/30 hover:border-secondary-500/30 transition-colors duration-300 group cursor-pointer overflow-hidden"
+              className="text-center p-8 rounded-2xl border border-neutral-200 bg-white shadow-sm shadow-slate-200/60 hover:border-primary-300 hover:shadow-xl hover:shadow-primary-100/70 transition-all duration-300 group cursor-pointer overflow-hidden"
               whileHover="hover"
             >
-              <div className="absolute inset-0 bg-linear-to-br from-secondary-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-linear-to-br from-primary-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <motion.div 
-                className="relative z-10 w-12 h-12 rounded-lg bg-secondary-500/15 flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary-500/25 transition-all duration-300"
+                className="relative z-10 w-12 h-12 rounded-lg bg-primary-50 border border-primary-100 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-100 transition-all duration-300"
                 whileHover={{ scale: 1.15 }}
               >
-                {IconComponent && <IconComponent className="text-secondary-500 w-6 h-6" strokeWidth={1.5} />}
+                {IconComponent && <IconComponent className="text-primary-500 w-6 h-6" strokeWidth={1.5} />}
               </motion.div>
-              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-secondary-400 transition-colors relative z-10">{item.title}</h3>
-              <p className="text-neutral-400 relative z-10">{item.desc}</p>
+              <h3 className="text-xl font-bold text-neutral-900 mb-3 group-hover:text-primary-700 transition-colors relative z-10">{item.title}</h3>
+              <p className="text-neutral-600 relative z-10">{item.desc}</p>
             </motion.div>
           );
         })}

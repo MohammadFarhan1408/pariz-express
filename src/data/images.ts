@@ -1,36 +1,22 @@
 /**
- * Centralized image URLs for logistics theme
- * Using optimized Unsplash images for best performance
+ * Centralized image URLs for the Pariz Express medical transportation theme.
+ * Imagery should feel clean, professional, accessible, and care-focused.
  */
 
 export const images = {
-  // Hero Section
-  hero: 'https://images.unsplash.com/photo-1587280413257-98e61d6b1b41?w=1920&q=80', // logistics trucks
+  // Hero and breadcrumb banners
+  hero: 'https://images.unsplash.com/photo-1584515933487-779824d29309?w=1920&q=80&auto=format&fit=crop',
+  aboutHero: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1920&q=80&auto=format&fit=crop',
+  contactHero: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1920&q=80&auto=format&fit=crop',
 
   // About Page
-  aboutStory:
-    'https://images.pexels.com/photos/29057946/pexels-photo-29057946.jpeg', // warehouse team
-  aboutTeam:
-    'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80', // business team
+  aboutStory: 'https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=1000&q=80&auto=format&fit=crop',
+  aboutTeam: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=900&q=80&auto=format&fit=crop',
 
-  // Services
-  servicesHero:
-    'https://images.unsplash.com/photo-1586528116025-c48878b9ee96?w=600&q=80', // supply chain
-
-  // Why Choose Us / CTASection
-  whyChooseUs:
-    'https://images.unsplash.com/photo-1494976388531-d1058bb78e87?w=1200&q=80', // logistics highway
+  // Services and CTAs
+  servicesHero: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=1200&q=80&auto=format&fit=crop',
+  whyChooseUs: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1200&q=80&auto=format&fit=crop',
 
   // Contact Page
-  contactTeam:
-    'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80', // support team
-
-  // Background/Supplementary
-  warehouse:
-    'https://images.unsplash.com/photo-1597659264649-5d2b635fbeda?w=800&q=80', // warehouse
-  delivery:
-    'https://images.unsplash.com/photo-1618180021969-f929aa32f7e3?w=800&q=80', // delivery person
-  tracking: 'https://images.unsplash.com/photo-1559163614-ce4c91b04d37?w=800&q=80', // gps tracking
-  package:
-    'https://images.unsplash.com/photo-1563861826100-9cb868fdbe1e?w=800&q=80', // packaging
+  contactTeam: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=900&q=80&auto=format&fit=crop',
 };

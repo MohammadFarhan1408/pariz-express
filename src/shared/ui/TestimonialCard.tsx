@@ -22,15 +22,15 @@ export default function TestimonialCard({ name, role, quote, rating, delay = 0 }
       whileInView="visible"
       whileHover="hover"
       viewport={{ once: true, margin: '-50px' }}
-      className="rounded-2xl p-8 border border-white/10 bg-linear-to-br from-neutral-900/50 to-neutral-800/30 backdrop-blur-sm hover:border-secondary-500/30 relative overflow-hidden group"
+      className="rounded-2xl p-8 border border-neutral-200 bg-white shadow-sm shadow-slate-200/60 hover:border-primary-300 hover:shadow-xl hover:shadow-primary-100/70 relative overflow-hidden group"
       style={{ transitionDelay: `${delay}ms` }}
     >
       {/* Animated background gradient on hover */}
-      <div className="absolute inset-0 bg-linear-to-br from-secondary-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute inset-0 bg-linear-to-br from-primary-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
       {/* Decorative quote mark */}
       <motion.div 
-        className="absolute top-4 right-6 text-6xl text-primary-500/10 font-serif select-none"
+        className="absolute top-4 right-6 text-6xl text-primary-200 font-serif select-none"
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
@@ -57,7 +57,7 @@ export default function TestimonialCard({ name, role, quote, rating, delay = 0 }
           >
             <Star
               size={18}
-              className={`${i < rating ? 'fill-secondary-400 text-secondary-400' : 'text-neutral-700'}`}
+              className={`${i < rating ? 'fill-primary-400 text-primary-400' : 'text-neutral-300'}`}
               strokeWidth={1}
             />
           </motion.div>
@@ -66,7 +66,7 @@ export default function TestimonialCard({ name, role, quote, rating, delay = 0 }
 
       {/* Quote */}
       <motion.p 
-        className="text-neutral-300 leading-relaxed mb-6 italic relative z-10 text-sm sm:text-base"
+        className="text-neutral-700 leading-relaxed mb-6 italic relative z-10 text-sm sm:text-base"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -84,13 +84,13 @@ export default function TestimonialCard({ name, role, quote, rating, delay = 0 }
         transition={{ delay: (delay || 0) / 1000 + 0.2 }}
       >
         <motion.div 
-          className="w-10 h-10 rounded-full bg-linear-to-br from-secondary-500 to-secondary-600 flex items-center justify-center text-white font-bold text-sm shrink-0"
+          className="w-10 h-10 rounded-full bg-linear-to-br from-primary-400 to-primary-500 flex items-center justify-center text-white font-bold text-sm shrink-0"
           whileHover={{ scale: 1.1 }}
         >
           {name.charAt(0)}
         </motion.div>
         <div>
-          <p className="text-white font-semibold text-sm group-hover:text-secondary-400 transition-colors">{name}</p>
+          <p className="text-neutral-900 font-semibold text-sm group-hover:text-primary-700 transition-colors">{name}</p>
           <p className="text-neutral-500 text-xs">{role}</p>
         </div>
       </motion.div>

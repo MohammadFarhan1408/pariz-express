@@ -19,17 +19,17 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const base =
-    'inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-dark-bg active:scale-95';
+    'inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white active:scale-95';
 
   const variants = {
     primary:
-      'bg-linear-to-r from-secondary-500 to-secondary-400 text-white hover:shadow-[0_0_30px_rgba(255,140,0,0.4)] hover:from-secondary-400 hover:to-secondary-300 focus:ring-secondary-500',
+      'bg-primary-400 text-white shadow-lg shadow-primary-400/20 hover:-translate-y-0.5 hover:bg-primary-500 hover:shadow-xl hover:shadow-primary-400/25 focus:ring-primary-400',
     secondary:
-      'bg-linear-to-r from-primary-500 to-primary-400 text-white hover:shadow-[0_0_30px_rgba(0,82,204,0.4)] hover:from-primary-400 hover:to-primary-300 focus:ring-primary-500',
+      'bg-primary-50 text-primary-700 border border-primary-200 hover:-translate-y-0.5 hover:bg-primary-100 hover:border-primary-300 focus:ring-primary-400',
     outline:
-      'border-2 border-secondary-500 text-secondary-400 hover:bg-secondary-500 hover:text-white hover:border-secondary-400 focus:ring-secondary-500',
+      'bg-white border border-primary-400 text-primary-600 hover:-translate-y-0.5 hover:bg-primary-50 hover:border-primary-500 focus:ring-primary-400',
     ghost:
-      'text-neutral-300 hover:text-white hover:bg-white/10 focus:ring-neutral-500',
+      'text-neutral-600 hover:text-primary-700 hover:bg-primary-50 focus:ring-primary-300',
   };
 
   const sizes = {

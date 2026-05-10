@@ -1,127 +1,181 @@
-// Pariz Express — Site Constants
+// Pariz Express site constants
 
-export const SITE_NAME = 'Pariz Express';
-export const SITE_TAGLINE = 'Fast. Reliable. Everywhere.';
+export const SITE_NAME = "Pariz Express";
+export const SITE_TAGLINE = "Safe rides. Compassionate care.";
 export const SITE_DESCRIPTION =
-  'Premium logistics and last-mile delivery solutions for businesses across the nation.';
+  "Professional non-emergency medical transportation designed for comfort, accessibility, and peace of mind.";
 
 export const NAV_LINKS = [
-  { label: 'Home', path: '/' },
-  { label: 'Services', path: '/services' },
-  { label: 'About', path: '/about' },
-  { label: 'Contact', path: '/contact' },
-  // { label: 'Tracking', path: '/tracking' },
+  { label: "Home", path: "/" },
+  { label: "About", path: "/about" },
+  { label: "Services", path: "/services" },
+  { label: "Contact", path: "/contact" },
+  // { label: 'Booking', path: '/tracking' },
 ] as const;
 
 export const SERVICES = [
   {
-    id: 'last-mile',
-    icon: 'Truck',
-    title: 'Last Mile Delivery',
+    id: "wheelchair-transportation",
+    icon: "Accessibility",
+    title: "Wheelchair Transportation",
     description:
-      'Swift and secure doorstep delivery with real-time tracking, ensuring your packages arrive on time, every time.',
-    features: ['Same-day delivery', 'Real-time GPS tracking', 'Proof of delivery', 'Temperature-controlled options'],
+      "Safe and comfortable wheelchair-accessible rides designed for medical visits, therapy sessions, and daily mobility needs.",
+    image:
+      "https://images.unsplash.com/photo-1584515933487-779824d29309?w=900&q=80&auto=format&fit=crop",
+    imageAlt:
+      "Caregiver assisting a wheelchair passenger with compassionate support",
+    features: ["Accessible rides", "Secure boarding", "Comfort-first care"],
+    ctaLabel: "Book Wheelchair Ride",
   },
   {
-    id: 'ecommerce',
-    icon: 'Package',
-    title: 'E-commerce Fulfillment',
+    id: "ambulatory-transportation",
+    icon: "Footprints",
+    title: "Ambulatory Transportation",
     description:
-      'End-to-end fulfillment services from warehousing to shipping, designed to scale with your online business.',
-    features: ['Inventory management', 'Order processing', 'Multi-channel integration', 'Returns handling'],
+      "Reliable transportation for patients who can walk independently but require safe and dependable medical transit.",
+    image:
+      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&q=80&auto=format&fit=crop",
+    imageAlt:
+      "Healthcare professional walking with a patient in a bright medical setting",
+    features: ["Door-to-door help", "Timely pickup", "Friendly drivers"],
+    ctaLabel: "Schedule a Ride",
   },
   {
-    id: 'retail',
-    icon: 'Warehouse',
-    title: 'Retail Distribution',
+    id: "non-emergency-medical-transport",
+    icon: "ShieldCheck",
+    title: "Non-Emergency Medical Transport",
     description:
-      'Efficient distribution networks connecting manufacturers to retail outlets with optimized routes and schedules.',
-    features: ['Route optimization', 'Scheduled deliveries', 'Cross-docking', 'Vendor compliance'],
+      "Professional non-emergency transportation focused on punctuality, comfort, and compassionate care.",
+    image:
+      "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=900&q=80&auto=format&fit=crop",
+    imageAlt:
+      "Clean hospital corridor representing dependable non-emergency medical transport",
+    features: ["Reliable scheduling", "Care-focused team", "Medical visits"],
+    ctaLabel: "Plan Transport",
   },
   {
-    id: 'white-glove',
-    icon: 'ShieldCheck',
-    title: 'White Glove Delivery',
+    id: "dialysis-transportation",
+    icon: "CalendarClock",
+    title: "Dialysis Transportation",
     description:
-      'Premium handling for high-value items with specialized equipment and trained professionals.',
-    features: ['Assembly & installation', 'Room of choice delivery', 'Debris removal', 'Insurance coverage'],
+      "Consistent and stress-free transportation for recurring dialysis appointments and treatments.",
+    image:
+      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=900&q=80&auto=format&fit=crop",
+    imageAlt:
+      "Medical care environment prepared for recurring treatment appointments",
+    features: ["Recurring rides", "On-time care", "Low-stress trips"],
+    ctaLabel: "Set Up Recurring Ride",
   },
   {
-    id: 'technology',
-    icon: 'Zap',
-    title: 'Tracking & Technology',
+    id: "hospital-discharge-transport",
+    icon: "Hospital",
+    title: "Hospital Discharge Transport",
     description:
-      'Advanced logistics technology platform with AI-powered route optimization and predictive analytics.',
-    features: ['AI route planning', 'Predictive ETAs', 'API integration', 'Custom dashboards'],
+      "Secure transportation support after hospital discharge with extra care for recovery and comfort.",
+    image:
+      "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=900&q=80&auto=format&fit=crop",
+    imageAlt: "Modern hospital care setting for safe discharge transportation",
+    features: ["Recovery support", "Careful transfers", "Family coordination"],
+    ctaLabel: "Arrange Discharge Ride",
+  },
+  {
+    id: "doctor-appointment-rides",
+    icon: "Stethoscope",
+    title: "Doctor Appointment Rides",
+    description:
+      "On-time transportation for medical consultations, follow-ups, and specialist appointments.",
+    image:
+      "https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=900&q=80&auto=format&fit=crop",
+    imageAlt:
+      "Healthcare appointment check-in with professional medical support",
+    features: ["Specialist visits", "Follow-ups", "Punctual service"],
+    ctaLabel: "Book Appointment Ride",
+  },
+  {
+    id: "airport-medical-assistance",
+    icon: "Plane",
+    title: "Airport Medical Assistance Transport",
+    description:
+      "Comfortable transportation solutions for travelers needing mobility or medical assistance.",
+    image:
+      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&q=80&auto=format&fit=crop",
+    imageAlt:
+      "Airport terminal prepared for travelers needing medical transportation assistance",
+    features: ["Airport pickup", "Mobility support", "Travel coordination"],
+    ctaLabel: "Reserve Airport Ride",
   },
 ] as const;
 
 export const PROCESS_STEPS = [
   {
     step: 1,
-    icon: 'FileText',
-    title: 'Book',
-    description: 'Schedule a pickup online or via API with just a few clicks.',
+    icon: "CalendarCheck",
+    title: "Book Ride",
+    description:
+      "Share your pickup location, appointment time, and mobility needs.",
   },
   {
     step: 2,
-    icon: 'MapPin',
-    title: 'Pick Up',
-    description: 'We collect your package from your location at the scheduled time.',
+    icon: "ClipboardCheck",
+    title: "Confirm Details",
+    description:
+      "We review timing, passenger support, and destination details.",
   },
   {
     step: 3,
-    icon: 'Satellite',
-    title: 'Track',
-    description: 'Monitor your shipment in real-time with our advanced tracking system.',
+    icon: "ShieldCheck",
+    title: "Travel Safely",
+    description:
+      "Our team provides dependable, comfortable medical transportation.",
   },
   {
     step: 4,
-    icon: 'CheckCircle2',
-    title: 'Deliver',
-    description: 'Your package arrives safely at its destination with proof of delivery.',
+    icon: "MapPinCheck",
+    title: "Arrive on Time",
+    description:
+      "Patients reach appointments, treatment, or home with confidence.",
   },
 ] as const;
 
 export const TESTIMONIALS = [
   {
-    name: 'Sarah Johnson',
-    role: 'E-commerce Director, StyleHub',
+    name: "Sarah Johnson",
+    role: "Daughter of Patient",
     quote:
-      'Pariz Express transformed our delivery operations. 98% on-time delivery rate and our customer complaints dropped by 60%.',
+      "Pariz Express made my mother’s wheelchair appointments much easier. The driver was patient, professional, and right on time.",
     rating: 5,
   },
   {
-    name: 'Michael Chen',
-    role: 'Operations Manager, TechRetail',
+    name: "Michael Chen",
+    role: "Dialysis Transportation Client",
     quote:
-      'The real-time tracking and API integration saved us hundreds of hours. Their tech platform is truly next-level.',
+      "Recurring dialysis rides are finally predictable. The team communicates clearly and treats every trip with care.",
     rating: 5,
   },
   {
-    name: 'Aisha Patel',
-    role: 'Founder, GreenGrocer',
+    name: "Aisha Patel",
+    role: "Care Coordinator",
     quote:
-      'Their white glove service is impeccable. Our fragile products arrive in perfect condition, every single time.',
+      "Their scheduling support and patient-first approach give our families real peace of mind.",
     rating: 5,
   },
 ] as const;
 
 export const STATS = [
-  { value: '10M+', label: 'Packages Delivered' },
-  { value: '98.5%', label: 'On-Time Rate' },
-  { value: '500+', label: 'Cities Covered' },
-  { value: '24/7', label: 'Support Available' },
+  { value: "7", label: "Transport Services" },
+  { value: "4.9/5", label: "Client Rating" },
+  { value: "24/7", label: "Ride Requests" },
+  { value: "100%", label: "Care-Focused" },
 ] as const;
 
 export const COMPANY_INFO = {
-  email: 'hello@parizexpress.com',
-  phone: '+1 (800) 555-0199',
-  address: '123 Logistics Way, Suite 400, New York, NY 10001',
+  email: "info@parizexpress.com",
+  phone: "1-925-354-8122",
+  address: "Service area available by appointment",
   socials: {
-    twitter: '#',
-    linkedin: '#',
-    facebook: '#',
-    instagram: '#',
+    twitter: "#",
+    linkedin: "#",
+    facebook: "#",
+    instagram: "#",
   },
 } as const;

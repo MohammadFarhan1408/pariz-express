@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import * as LucideIcons from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import HeroSection from '../../shared/sections/HeroSection';
 import SectionWrapper from '../../shared/layout/SectionWrapper';
 import CTASection from '../../shared/sections/CTASection';
@@ -14,11 +15,14 @@ export default function AboutPage() {
       <HeroSection
         headline={
           <>
-            About <span className="text-gradient-orange">Pariz Express</span>
+            About <span className="text-gradient-sky">Pariz Express</span>
           </>
         }
-        subtitle="We're on a mission to revolutionize logistics with technology, reliability, and an unwavering commitment to our clients."
-        breadcrumb="About"
+        subtitle="Compassionate medical transportation built around safety, reliability, accessibility, and human-centered care."
+        breadcrumb="About Us"
+        backgroundImage={images.aboutHero}
+        imageAlt="Healthcare professional supporting a patient with medical transportation"
+        trustText="Serving patients, caregivers, families, and healthcare teams"
       />
 
       {/* Story Section */}
@@ -42,9 +46,9 @@ export default function AboutPage() {
       </SectionWrapper>
 
       <CTASection
-        headline="Join the Pariz Express Network"
-        subtitle="Partner with us and experience logistics that truly moves at the speed of business."
-        ctaLabel="Get Started Today"
+        headline="Transportation You Can Feel Confident About"
+        subtitle="Let Pariz Express coordinate a safe, comfortable ride for your next medical appointment or care transition."
+        ctaLabel="Book Transportation"
       />
     </>
   );
@@ -63,25 +67,24 @@ function StorySection() {
       viewport={{ once: true, margin: '-50px' }}
     >
       <motion.div variants={fadeInUp}>
-        <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/10 text-secondary-400 text-sm font-medium mb-4">
-          Our Story
+        <span className="inline-block px-4 py-1.5 rounded-full bg-primary-50 text-primary-700 border border-primary-100 text-sm font-medium mb-4">
+          Company Introduction
         </span>
-        <h2 className="text-3xl sm:text-4xl font-display font-bold text-white mb-6">
-          From a Single Van to a National Network
+        <h2 className="text-3xl sm:text-4xl font-display font-bold text-neutral-900 mb-6">
+          Patient-First Transportation with Professional Care
         </h2>
-        <div className="space-y-4 text-neutral-300 leading-relaxed">
+        <div className="space-y-4 text-neutral-600 leading-relaxed">
           <p>
-            Pariz Express was founded with a simple belief: every package deserves to arrive on time, every time.
-            What started as a small delivery operation has grown into one of the nation's most trusted logistics partners.
+            Pariz Express provides non-emergency medical transportation for people who need more than a standard ride.
+            We help patients travel to appointments, treatments, discharges, and mobility-related destinations with care and reliability.
           </p>
           <p>
-            Today, we serve thousands of businesses across 500+ cities, processing millions of deliveries annually.
-            Our technology-first approach combined with operational excellence ensures that we don't just deliver packages
-            — we deliver trust.
+            Our approach is simple: arrive prepared, communicate clearly, and treat every passenger with dignity.
+            From wheelchair transportation to recurring treatment rides, our team focuses on safe support and dependable timing.
           </p>
           <p>
-            From e-commerce startups to Fortune 500 retailers, our clients rely on us for the most critical leg of their
-            supply chain: the last mile.
+            Families and care teams choose Pariz Express because we understand that medical transportation is personal.
+            Comfort, accessibility, and peace of mind guide every trip we coordinate.
           </p>
         </div>
       </motion.div>
@@ -96,11 +99,11 @@ function StorySection() {
       >
         <img 
           src={images.aboutStory}
-          alt="Warehouse team coordination"
+          alt="Medical transportation support for a patient"
           className="w-full h-full object-cover rounded-2xl aspect-square"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-tr from-black/40 to-transparent rounded-2xl" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-primary-900/20 to-transparent rounded-2xl" />
       </motion.div>
     </motion.div>
   );
@@ -119,47 +122,45 @@ function MissionVision() {
     >
       <div className="text-center max-w-2xl mx-auto mb-12">
         <motion.h2 
-          className="text-3xl sm:text-4xl font-display font-bold text-white mb-4"
+          className="text-3xl sm:text-4xl font-display font-bold text-neutral-900 mb-4"
           variants={fadeInUp}
         >
-          Mission & Vision
+          Mission & Transportation Approach
         </motion.h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <motion.div 
           variants={cardVariants}
-          className="rounded-2xl p-10 border border-white/10 bg-linear-to-br from-neutral-900/50 to-neutral-800/30 hover:border-secondary-500/30 overflow-hidden group"
+          className="rounded-2xl p-10 border border-neutral-200 bg-white shadow-sm shadow-slate-200/60 hover:border-primary-300 hover:shadow-xl hover:shadow-primary-100/70 overflow-hidden group"
           whileHover="hover"
         >
-          <div className="absolute inset-0 bg-linear-to-br from-secondary-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-linear-to-br from-primary-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           <motion.div 
-            className="w-14 h-14 rounded-xl bg-secondary-500/15 flex items-center justify-center mb-6 group-hover:bg-secondary-500/25 transition-all duration-300 relative z-10"
+            className="w-14 h-14 rounded-xl bg-primary-50 border border-primary-100 flex items-center justify-center mb-6 group-hover:bg-primary-100 transition-all duration-300 relative z-10"
             whileHover={{ scale: 1.15 }}
           >
-            <LucideIcons.Target className="text-secondary-500 w-7 h-7" strokeWidth={1.5} />
+            <LucideIcons.Target className="text-primary-500 w-7 h-7" strokeWidth={1.5} />
           </motion.div>
-          <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-secondary-400 transition-colors relative z-10">Our Mission</h3>
-          <p className="text-neutral-300 leading-relaxed relative z-10">
-            To empower businesses with fast, reliable, and technology-driven logistics solutions that make last-mile
-            delivery seamless and cost-effective.
+          <h3 className="text-2xl font-bold text-neutral-900 mb-4 group-hover:text-primary-700 transition-colors relative z-10">Patient-First Care</h3>
+          <p className="text-neutral-600 leading-relaxed relative z-10">
+            To make medical transportation safer, easier, and more compassionate for patients, caregivers, and healthcare partners.
           </p>
         </motion.div>
         <motion.div 
           variants={cardVariants}
-          className="rounded-2xl p-10 border border-white/10 bg-linear-to-br from-neutral-900/50 to-neutral-800/30 hover:border-primary-500/30 overflow-hidden group"
+          className="rounded-2xl p-10 border border-neutral-200 bg-white shadow-sm shadow-slate-200/60 hover:border-primary-300 hover:shadow-xl hover:shadow-primary-100/70 overflow-hidden group"
           whileHover="hover"
         >
-          <div className="absolute inset-0 bg-linear-to-br from-primary-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-linear-to-br from-primary-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           <motion.div 
-            className="w-14 h-14 rounded-xl bg-primary-500/15 flex items-center justify-center mb-6 group-hover:bg-primary-500/25 transition-all duration-300 relative z-10"
+            className="w-14 h-14 rounded-xl bg-primary-50 border border-primary-100 flex items-center justify-center mb-6 group-hover:bg-primary-100 transition-all duration-300 relative z-10"
             whileHover={{ scale: 1.15 }}
           >
             <LucideIcons.Eye className="text-primary-500 w-7 h-7" strokeWidth={1.5} />
           </motion.div>
-          <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-primary-400 transition-colors relative z-10">Our Vision</h3>
-          <p className="text-neutral-300 leading-relaxed relative z-10">
-            To become the most trusted logistics partner in the nation, setting the standard for speed, reliability,
-            and innovation in every delivery we make.
+          <h3 className="text-2xl font-bold text-neutral-900 mb-4 group-hover:text-primary-700 transition-colors relative z-10">Safety & Reliability</h3>
+          <p className="text-neutral-600 leading-relaxed relative z-10">
+            To be a trusted transportation partner known for accessibility, professional service, and care that families can rely on.
           </p>
         </motion.div>
       </div>
@@ -180,16 +181,16 @@ function StatsSection() {
     >
       <div className="text-center max-w-2xl mx-auto mb-12">
         <motion.span 
-          className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/10 text-secondary-400 text-sm font-medium mb-4"
+          className="inline-block px-4 py-1.5 rounded-full bg-primary-50 text-primary-700 border border-primary-100 text-sm font-medium mb-4"
           variants={fadeInUp}
         >
-          By the Numbers
+          Company Standards
         </motion.span>
         <motion.h2 
-          className="text-3xl sm:text-4xl font-display font-bold text-white mb-4"
+          className="text-3xl sm:text-4xl font-display font-bold text-neutral-900 mb-4"
           variants={fadeInUp}
         >
-          Operational Strength
+          Reliable Medical Transportation
         </motion.h2>
       </div>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -197,12 +198,12 @@ function StatsSection() {
           <motion.div 
             key={stat.label}
             variants={staggerItem}
-            className="text-center p-8 rounded-2xl border border-white/10 bg-linear-to-br from-neutral-900/50 to-neutral-800/30 hover:border-secondary-500/30 transition-colors duration-300 group overflow-hidden"
+            className="text-center p-8 rounded-2xl border border-neutral-200 bg-white shadow-sm shadow-slate-200/60 hover:border-primary-300 hover:shadow-xl hover:shadow-primary-100/70 transition-all duration-300 group overflow-hidden"
             whileHover={{ y: -8 }}
           >
-            <div className="absolute inset-0 bg-linear-to-br from-secondary-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-linear-to-br from-primary-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <motion.div 
-              className="text-4xl lg:text-5xl font-display font-bold text-gradient-orange mb-2 relative z-10"
+              className="text-4xl lg:text-5xl font-display font-bold text-gradient-sky mb-2 relative z-10"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -210,7 +211,7 @@ function StatsSection() {
             >
               {stat.value}
             </motion.div>
-            <div className="text-neutral-400 relative z-10">{stat.label}</div>
+            <div className="text-neutral-600 relative z-10">{stat.label}</div>
           </motion.div>
         ))}
       </div>
@@ -222,10 +223,10 @@ function ValuesSection() {
   const ref = useScrollAnimation();
 
   const values = [
-    { icon: 'Gem', title: 'Integrity', desc: 'We operate with transparency and honesty in every interaction.' },
-    { icon: 'Rocket', title: 'Innovation', desc: 'We constantly push boundaries to deliver smarter logistics.' },
-    { icon: 'Handshake', title: 'Partnership', desc: 'Your success is our success — we grow together.' },
-    { icon: 'Leaf', title: 'Sustainability', desc: 'Committed to reducing our environmental footprint.' },
+    { icon: 'ShieldCheck', title: 'Safety', desc: 'Every ride is planned with passenger comfort and secure transportation in mind.' },
+    { icon: 'Clock3', title: 'Reliability', desc: 'We coordinate pickup and arrival windows around medical schedules.' },
+    { icon: 'UserRoundCheck', title: 'Professional Drivers', desc: 'Our team brings patience, preparation, and respectful communication to each trip.' },
+    { icon: 'Accessibility', title: 'Accessibility', desc: 'We support wheelchair users, seniors, and passengers with mobility needs.' },
   ];
 
   return (
@@ -238,37 +239,37 @@ function ValuesSection() {
     >
       <div className="text-center max-w-2xl mx-auto mb-12">
         <motion.span 
-          className="inline-block px-4 py-1.5 rounded-full bg-primary-500/10 text-secondary-300 text-sm font-medium mb-4"
+          className="inline-block px-4 py-1.5 rounded-full bg-primary-50 text-primary-700 border border-primary-100 text-sm font-medium mb-4"
           variants={fadeInUp}
         >
           Our Values
         </motion.span>
         <motion.h2 
-          className="text-3xl sm:text-4xl font-display font-bold text-white mb-4"
+          className="text-3xl sm:text-4xl font-display font-bold text-neutral-900 mb-4"
           variants={fadeInUp}
         >
-          What Drives Us
+          Why Choose Pariz Express
         </motion.h2>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {values.map((val, idx) => {
-          const IconComponent = LucideIcons[val.icon as keyof typeof LucideIcons] as any;
+          const IconComponent = LucideIcons[val.icon as keyof typeof LucideIcons] as LucideIcon | undefined;
           return (
             <motion.div
               key={idx}
               variants={staggerItem}
-              className="text-center p-8 rounded-2xl border border-white/10 bg-linear-to-br from-neutral-900/50 to-neutral-800/30 hover:border-secondary-500/30 transition-colors duration-300 group overflow-hidden"
+              className="text-center p-8 rounded-2xl border border-neutral-200 bg-white shadow-sm shadow-slate-200/60 hover:border-primary-300 hover:shadow-xl hover:shadow-primary-100/70 transition-all duration-300 group overflow-hidden"
               whileHover={{ y: -4 }}
             >
-              <div className="absolute inset-0 bg-linear-to-br from-secondary-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-linear-to-br from-primary-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <motion.div 
-                className="relative z-10 w-12 h-12 rounded-lg bg-secondary-500/15 flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary-500/25 transition-all duration-300"
+                className="relative z-10 w-12 h-12 rounded-lg bg-primary-50 border border-primary-100 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-100 transition-all duration-300"
                 whileHover={{ scale: 1.15 }}
               >
-                {IconComponent && <IconComponent className="text-secondary-500 w-6 h-6" strokeWidth={1.5} />}
+                {IconComponent && <IconComponent className="text-primary-500 w-6 h-6" strokeWidth={1.5} />}
               </motion.div>
-              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-secondary-400 transition-colors relative z-10">{val.title}</h3>
-              <p className="text-neutral-400 text-sm relative z-10">{val.desc}</p>
+              <h3 className="text-lg font-bold text-neutral-900 mb-2 group-hover:text-primary-700 transition-colors relative z-10">{val.title}</h3>
+              <p className="text-neutral-600 text-sm relative z-10">{val.desc}</p>
             </motion.div>
           );
         })}

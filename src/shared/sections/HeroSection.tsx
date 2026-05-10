@@ -11,73 +11,60 @@ interface HeroSectionProps {
   primaryCTA?: { label: string; to: string };
   secondaryCTA?: { label: string; to: string };
   breadcrumb?: string;
+  backgroundImage?: string;
+  imageAlt?: string;
+  trustText?: string;
 }
 
-export default function HeroSection({ headline, subtitle, primaryCTA, secondaryCTA, breadcrumb }: HeroSectionProps) {
+export default function HeroSection({
+  headline,
+  subtitle,
+  primaryCTA,
+  secondaryCTA,
+  breadcrumb,
+  backgroundImage = images.hero,
+  imageAlt = 'Professional medical transportation assistance',
+  trustText = 'Trusted medical transportation for patients, families, and care teams',
+}: HeroSectionProps) {
   return (
-    <section className="relative min-h-[85vh] flex items-center bg-neutral-950 overflow-hidden">
+    <section className="relative min-h-[78vh] flex items-center bg-neutral-50 overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0 overflow-hidden">
         <img 
-          src={images.hero}
-          alt="Logistics background"
+          src={backgroundImage}
+          alt={imageAlt}
           className="w-full h-full object-cover"
           loading="lazy"
         />
       </div>
       
       {/* Gradient overlay for readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/70 pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-r from-slate-950/70 via-slate-900/45 to-primary-900/35 pointer-events-none" />
 
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Animated gradient orbs */}
-        <motion.div 
-          className="absolute -top-40 -right-40 w-96 h-96 bg-primary-500/8 rounded-full blur-3xl"
-          animate={{ 
-            x: [0, 20, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div 
-          className="absolute -bottom-40 -left-40 w-96 h-96 bg-secondary-500/6 rounded-full blur-3xl"
-          animate={{ 
-            x: [0, -20, 0],
-            y: [0, -30, 0],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-        />
-        <motion.div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-500/4 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1, 1.1, 1],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        
-        {/* Grid pattern */}
         <div
-          className="absolute inset-0 opacity-[0.02]"
+          className="absolute inset-0 opacity-[0.08]"
           style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-            backgroundSize: '60px 60px',
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.16) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.12) 1px, transparent 1px)`,
+            backgroundSize: '72px 72px',
           }}
         />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-10 w-full">
         {breadcrumb && (
-          <motion.div 
-            className="flex items-center gap-2 text-sm text-neutral-400 mb-8"
+          <motion.nav 
+            className="flex items-center gap-2 text-sm text-white/70 mb-8"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
+            aria-label="Breadcrumb"
           >
-            <Link to="/" className="hover:text-secondary-400 transition-colors">Home</Link>
+            <Link to="/" className="hover:text-primary-200 transition-colors">Home</Link>
             <span>/</span>
-            <span className="text-neutral-300">{breadcrumb}</span>
-          </motion.div>
+            <span className="text-white">{breadcrumb}</span>
+          </motion.nav>
         )}
 
         <motion.div 
@@ -94,7 +81,7 @@ export default function HeroSection({ headline, subtitle, primaryCTA, secondaryC
           </motion.h1>
 
           <motion.p 
-            className="text-lg sm:text-xl text-neutral-300 max-w-2xl mb-10"
+            className="text-lg sm:text-xl text-white/85 max-w-2xl mb-10 leading-relaxed"
             variants={fadeInUp}
           >
             {subtitle}
@@ -124,11 +111,11 @@ export default function HeroSection({ headline, subtitle, primaryCTA, secondaryC
 
           {/* Trust indicator */}
           <motion.div 
-            className="mt-16 pt-8 border-t border-white/5"
+            className="mt-16 pt-8 border-t border-white/15"
             variants={fadeInUp}
           >
-            <p className="text-sm text-neutral-500">
-              ✓ Trusted by 500+ businesses across the nation
+            <p className="text-sm text-white/70">
+              {trustText}
             </p>
           </motion.div>
         </motion.div>

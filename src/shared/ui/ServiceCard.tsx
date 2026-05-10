@@ -1,22 +1,32 @@
 import { motion } from 'framer-motion';
-import * as LucideIcons from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { cardVariants } from '../../utils/animations';
 
 interface ServiceCardProps {
-  icon: string;
+  icon?: string;
   title: string;
   description: string;
+  image?: string;
+  imageAlt?: string;
   features?: readonly string[];
+  ctaLabel?: string;
+  ctaTo?: string;
   delay?: number;
 }
 
-export default function ServiceCard({ icon, title, description, features, delay = 0 }: ServiceCardProps) {
+export default function ServiceCard({
+  title,
+  description,
+  image,
+  imageAlt,
+  features,
+  ctaLabel = 'Learn More',
+  ctaTo = '/contact',
+  delay = 0,
+}: ServiceCardProps) {
   const ref = useScrollAnimation();
-  
-  // Get the icon component from lucide-react
-  const IconComponent = LucideIcons[icon as keyof typeof LucideIcons] as any;
-  const iconColor = 'text-secondary-500';
 
   return (
     <motion.div
@@ -24,41 +34,55 @@ export default function ServiceCard({ icon, title, description, features, delay 
       variants={cardVariants}
       initial="hidden"
       whileInView="visible"
-      whileHover="hover"
+      whileHover={{ y: -6, scale: 1.01 }}
       viewport={{ once: true, margin: '-50px' }}
-      className="rounded-2xl p-8 border border-white/10 bg-linear-to-br from-neutral-900/50 to-neutral-800/30 backdrop-blur-sm hover:border-secondary-500/30 group overflow-hidden"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm shadow-slate-200/70 transition-all duration-300 hover:border-primary-300 hover:shadow-xl hover:shadow-primary-100/80"
       style={{ transitionDelay: `${delay}ms` }}
     >
-      {/* Animated background gradient on hover */}
-      <div className="absolute inset-0 bg-linear-to-br from-secondary-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="relative aspect-[16/10] overflow-hidden bg-primary-50">
+        {image && (
+          <img
+            src={image}
+            alt={imageAlt || title}
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+        )}
+        <div className="absolute inset-0 bg-linear-to-t from-slate-950/20 via-transparent to-transparent" />
+      </div>
 
-      {/* Icon */}
-      <motion.div 
-        className="relative w-16 h-16 rounded-xl bg-secondary-500/15 flex items-center justify-center mb-6 group-hover:bg-secondary-500/25 transition-all duration-300"
-        whileHover={{ scale: 1.15 }}
-      >
-        {IconComponent && <IconComponent className={`${iconColor} w-8 h-8`} strokeWidth={1.5} />}
-      </motion.div>
+      <div className="flex flex-1 flex-col p-6 sm:p-7">
+        <div className="mb-5 flex-1">
+          <h3 className="mb-3 text-xl font-semibold leading-tight text-neutral-900 transition-colors duration-300 group-hover:text-primary-700">
+            {title}
+          </h3>
+          <p className="text-sm leading-relaxed text-neutral-600 sm:text-base">
+            {description}
+          </p>
+        </div>
 
-      {/* Title */}
-      <h3 className="text-xl font-bold text-white mb-3 group-hover:text-secondary-400 transition-colors duration-300 relative z-10">
-        {title}
-      </h3>
+        {features && features.length > 0 && (
+          <div className="mb-6 flex flex-wrap gap-2">
+            {features.slice(0, 3).map((feature) => (
+              <span
+                key={feature}
+                className="rounded-full border border-primary-100 bg-primary-50 px-3 py-1 text-xs font-medium text-primary-700"
+              >
+                {feature}
+              </span>
+            ))}
+          </div>
+        )}
 
-      {/* Description */}
-      <p className="text-neutral-400 leading-relaxed mb-4 relative z-10">{description}</p>
-
-      {/* Features List */}
-      {features && features.length > 0 && (
-        <ul className="space-y-2 relative z-10">
-          {features.map((feature, idx) => (
-            <li key={idx} className="flex items-center gap-3 text-sm text-neutral-300 hover:text-neutral-200 transition-colors">
-              <span className="w-1.5 h-1.5 rounded-full bg-linear-to-r from-secondary-500 to-secondary-400 shrink-0" />
-              {feature}
-            </li>
-          ))}
-        </ul>
-      )}
+        <Link
+          to={ctaTo}
+          className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary-400 px-5 py-3 text-sm font-semibold text-white shadow-sm shadow-primary-400/20 transition-all duration-300 hover:scale-[1.02] hover:bg-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2"
+          aria-label={`${ctaLabel} for ${title}`}
+        >
+          {ctaLabel}
+          <ArrowRight className="h-4 w-4" strokeWidth={2} />
+        </Link>
+      </div>
     </motion.div>
   );
 }

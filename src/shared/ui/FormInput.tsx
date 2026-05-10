@@ -25,22 +25,30 @@ export default function FormInput(props: FormInputProps) {
   const { label, error, id, as: asType } = props;
 
   const fieldClasses =
-    'w-full px-4 py-3 bg-dark-elevated border border-dark-border rounded-xl text-neutral-200 placeholder-neutral-500 focus:outline-none focus:border-secondary-500 focus:ring-1 focus:ring-secondary-500/50 transition-all duration-200';
+    'w-full px-4 py-3 bg-white border border-neutral-300 rounded-xl text-neutral-900 placeholder-neutral-400 focus:outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 transition-all duration-200';
 
   return (
     <div className="space-y-1.5">
-      <label htmlFor={id} className="block text-sm font-medium text-neutral-300">
+      <label htmlFor={id} className="block text-sm font-medium text-neutral-700">
         {label}
       </label>
 
       {asType === 'textarea' ? (
         (() => {
-          const { label: _l, error: _e, as: _a, id: _id, ...rest } = props as TextareaProps;
+          const { label: fieldLabel, error: fieldError, as: fieldAs, id: fieldId, ...rest } = props as TextareaProps;
+          void fieldLabel;
+          void fieldError;
+          void fieldAs;
+          void fieldId;
           return <textarea id={id} className={`${fieldClasses} min-h-[120px] resize-y`} {...rest} />;
         })()
       ) : asType === 'select' ? (
         (() => {
-          const { label: _l, error: _e, as: _a, options, id: _id, ...rest } = props as SelectProps;
+          const { label: fieldLabel, error: fieldError, as: fieldAs, options, id: fieldId, ...rest } = props as SelectProps;
+          void fieldLabel;
+          void fieldError;
+          void fieldAs;
+          void fieldId;
           return (
             <select id={id} className={`${fieldClasses} cursor-pointer`} {...rest}>
               <option value="">Select an option</option>
@@ -52,7 +60,11 @@ export default function FormInput(props: FormInputProps) {
         })()
       ) : (
         (() => {
-          const { label: _l, error: _e, as: _a, id: _id, ...rest } = props as InputProps;
+          const { label: fieldLabel, error: fieldError, as: fieldAs, id: fieldId, ...rest } = props as InputProps;
+          void fieldLabel;
+          void fieldError;
+          void fieldAs;
+          void fieldId;
           return <input id={id} className={fieldClasses} {...rest} />;
         })()
       )}

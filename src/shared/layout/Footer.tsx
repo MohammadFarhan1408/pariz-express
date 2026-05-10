@@ -1,11 +1,17 @@
 import { Link } from "react-router-dom";
-import { NAV_LINKS, SITE_NAME, COMPANY_INFO } from "../../utils/constants";
 import {
-  Mail,
-  MapPin,
-  Phone,
-} from "lucide-react";
-import { FaFacebook, FaInstagram, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
+  COMPANY_INFO,
+  NAV_LINKS,
+  SERVICES,
+  SITE_NAME,
+} from "../../utils/constants";
+import { Mail, MapPin, Phone } from "lucide-react";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaLinkedinIn,
+  FaXTwitter,
+} from "react-icons/fa6";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -18,25 +24,48 @@ export default function Footer() {
   ];
 
   return (
-    <footer
-      id="site-footer"
-      className="bg-neutral-950 border-t border-dark-border"
-    >
+    <footer id="site-footer" className="bg-slate-950 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="mb-12 rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-2xl shadow-black/20 sm:p-8 lg:flex lg:items-center lg:justify-between">
+          <div>
+            <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-primary-300">
+              Need medical transportation?
+            </p>
+            <h3 className="text-2xl font-bold text-white sm:text-3xl">
+              Book a safe, reliable ride with Pariz Express.
+            </h3>
+          </div>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:mt-0">
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center rounded-xl bg-primary-400 px-5 py-3 text-sm font-semibold text-white shadow-sm shadow-primary-400/20 transition-all hover:bg-primary-500"
+            >
+              Get Assistance
+            </Link>
+            <a
+              href={`tel:${COMPANY_INFO.phone}`}
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 px-5 py-3 text-sm font-semibold text-white transition-all hover:border-primary-300 hover:text-primary-200"
+            >
+              <Phone className="h-4 w-4" />
+              Call Now
+            </a>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-linear-to-br from-secondary-500 to-secondary-600 flex items-center justify-center font-bold text-white text-lg">
+              <div className="w-10 h-10 rounded-lg bg-linear-to-br from-primary-400 to-primary-600 flex items-center justify-center font-bold text-white text-lg">
                 P
               </div>
               <span className="text-xl font-display font-bold text-white">
                 {SITE_NAME}
               </span>
             </Link>
-            <p className="text-neutral-400 text-sm leading-relaxed mb-6">
-              Premium logistics and last-mile delivery solutions for businesses
-              across the nation.
+            <p className="text-slate-300 text-sm leading-relaxed mb-6">
+              Compassionate non-emergency medical transportation for patients,
+              families, and care teams who need dependable support.
             </p>
             {/* Social Links */}
             <div className="flex gap-3">
@@ -45,7 +74,7 @@ export default function Footer() {
                   key={name}
                   href="#"
                   aria-label={name}
-                  className="w-9 h-9 rounded-lg bg-dark-elevated border border-dark-border flex items-center justify-center text-neutral-400 hover:text-secondary-400 hover:border-secondary-500/50 transition-all duration-200"
+                  className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:text-primary-300 hover:border-primary-300/50 hover:-translate-y-0.5 transition-all duration-200"
                 >
                   <Icon className="w-4 h-4" strokeWidth={1.5} />
                 </a>
@@ -56,14 +85,14 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">
-              Navigation
+              Quick Links
             </h4>
             <ul className="space-y-3">
               {NAV_LINKS.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-neutral-400 hover:text-secondary-400 text-sm transition-colors duration-200"
+                    className="text-slate-300 hover:text-primary-300 text-sm transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -78,19 +107,13 @@ export default function Footer() {
               Services
             </h4>
             <ul className="space-y-3">
-              {[
-                "Last Mile Delivery",
-                "E-commerce Fulfillment",
-                "Retail Distribution",
-                "White Glove Delivery",
-                "Tracking & Technology",
-              ].map((service) => (
-                <li key={service}>
+              {SERVICES.slice(0, 5).map((service) => (
+                <li key={service.id}>
                   <Link
-                    to="/services"
-                    className="text-neutral-400 hover:text-secondary-400 text-sm transition-colors duration-200"
+                    to={`/services/${service.id}`}
+                    className="text-slate-300 hover:text-primary-300 text-sm transition-colors duration-200"
                   >
-                    {service}
+                    {service.title}
                   </Link>
                 </li>
               ))}
@@ -102,14 +125,14 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">
               Contact
             </h4>
-            <ul className="space-y-3 text-sm text-neutral-400">
+            <ul className="space-y-3 text-sm text-slate-300">
               <li className="flex items-center gap-2">
                 <span className="mt-0.5">
                   <Mail className="w-5 h-5" />
                 </span>
                 <a
                   href={`mailto:${COMPANY_INFO.email}`}
-                  className="hover:text-secondary-400 transition-colors"
+                  className="hover:text-primary-300 transition-colors"
                 >
                   {COMPANY_INFO.email}
                 </a>
@@ -120,7 +143,7 @@ export default function Footer() {
                 </span>
                 <a
                   href={`tel:${COMPANY_INFO.phone}`}
-                  className="hover:text-secondary-400 transition-colors"
+                  className="hover:text-primary-300 transition-colors"
                 >
                   {COMPANY_INFO.phone}
                 </a>
@@ -136,15 +159,15 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-dark-border flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-neutral-500 text-sm">
-            © {currentYear} {SITE_NAME}. All rights reserved.
+        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-slate-400 text-sm">
+            &copy; {currentYear} {SITE_NAME}. All rights reserved.
           </p>
-          <div className="flex gap-6 text-sm text-neutral-500">
-            <a href="#" className="hover:text-neutral-300 transition-colors">
+          <div className="flex gap-6 text-sm text-slate-400">
+            <a href="#" className="hover:text-primary-300 transition-colors">
               Privacy Policy
             </a>
-            <a href="#" className="hover:text-neutral-300 transition-colors">
+            <a href="#" className="hover:text-primary-300 transition-colors">
               Terms of Service
             </a>
           </div>

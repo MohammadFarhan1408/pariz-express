@@ -14,9 +14,9 @@ export default function SectionWrapper({
   variant = 'light' 
 }: SectionWrapperProps) {
   const variants = {
-    light: 'py-20 lg:py-28 bg-neutral-50 ',
-    dark: 'py-20 lg:py-28 bg-neutral-950 border-t border-neutral-900/50',
-    gradient: 'py-20 lg:py-28 bg-linear-to-b from-neutral-50 to-white',
+    light: 'py-20 lg:py-28 bg-white',
+    dark: 'py-20 lg:py-28 bg-neutral-50 border-t border-neutral-200/70',
+    gradient: 'py-20 lg:py-28 bg-linear-to-b from-primary-50 to-white',
   };
 
   return (
@@ -26,7 +26,7 @@ export default function SectionWrapper({
     >
       {/* Subtle gradient overlay for depth */}
       {variant === 'dark' && (
-        <div className="absolute inset-0 bg-linear-to-b from-neutral-900/30 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-b from-white/60 to-transparent pointer-events-none" />
       )}
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
