@@ -12,6 +12,7 @@ import {
   FaLinkedinIn,
   FaXTwitter,
 } from "react-icons/fa6";
+import ParizExpressLogo from "../../assets/images/pariz-express-light.png";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -56,12 +57,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-linear-to-br from-primary-400 to-primary-600 flex items-center justify-center font-bold text-white text-lg">
-                P
-              </div>
-              <span className="text-xl font-display font-bold text-white">
-                {SITE_NAME}
-              </span>
+              <img
+                src={ParizExpressLogo}
+                alt={SITE_NAME}
+                className="w-full h-auto max-w-37.5 object-contain"
+              />
             </Link>
             <p className="text-slate-300 text-sm leading-relaxed mb-6">
               Compassionate non-emergency medical transportation for patients,

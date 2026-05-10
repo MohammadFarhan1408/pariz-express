@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Mail, Phone } from "lucide-react";
 import { COMPANY_INFO, NAV_LINKS, SITE_NAME } from "../../utils/constants";
 import Button from "../ui/Button";
+import ParizExpressLogo from "../../assets/images/pariz-express-dark.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,21 +27,11 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group" id="logo-link">
-            <div className="w-11 h-11 rounded-xl bg-linear-to-br from-primary-400 to-primary-600 flex items-center justify-center font-bold text-white text-lg shadow-lg shadow-primary-400/20 group-hover:shadow-primary-400/30 transition-shadow duration-300">
-              P
-            </div>
-            <div>
-              <span
-                className={`block text-xl font-display font-bold tracking-tight transition-colors ${scrolled ? "text-neutral-900" : "text-white"}`}
-              >
-                {SITE_NAME}
-              </span>
-              <span
-                className={`hidden text-xs font-medium transition-colors sm:block ${scrolled ? "text-neutral-500" : "text-white/65"}`}
-              >
-                Medical Transportation
-              </span>
-            </div>
+            <img
+              src={ParizExpressLogo}
+              alt={SITE_NAME}
+              className="w-full h-auto max-w-37.5 object-contain"
+            />
           </Link>
 
           {/* Desktop Nav */}
